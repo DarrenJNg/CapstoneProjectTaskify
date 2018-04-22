@@ -12,12 +12,22 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private  ArrayList<String> editTasks = new ArrayList<>();
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String[] assignments = {"Homework", "Homework2","No"};
+        // String[] tasks = {"Homework", "Homework2","No", "Yes", "Why isn't this working?"};
+
+        editTasks.add("Pineapple");
+        editTasks.add("Bigger Pineapple");
+        editTasks.add("Biggest Pineapple");
+        String[] tasks = new String[editTasks.size()];
+        for(int x=0; x<editTasks.size(); x++){
+            tasks[x] = editTasks.get(x);
+        }
         //needs an adapter to transfer String[] to ListView
         ListAdapter adapter = new CustomAdapter(this, assignments);
         //initializes the ListView
